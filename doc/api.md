@@ -11,13 +11,13 @@
 | action     |          是 |  值为getall表示表示获取全部数据      |
 | page     |          是 |  当前页      |
 ####返回结果说明
-``` json
+```json
 {
-	totalCount: 10000,
-	page: 1,
-	pageSize:100,
-    key:["DealerID","DealerNo","DealerCode","IMSCode","SAPCode","DealerTypeID","DealerOwnerID","DealerNameCn","DealerNameEn","DealerShortNameCn","DealerShortNameEn","FormatID","FormatCodeID","_formatcode","Format","ProvinceID","CityID","ZipCode","OperatingAddressCn","OperatingAddressEn","FaxCountryNo","FaxAreaNo","FaxNo","PhoneCountryNo","PhoneAreaNo","PhoneNo","SupportPhoneCountryNo","SupportPhoneAreaNo","SupportPhoneNo","Email","HomePage","Status","DealerGroupID","BDC","LeadingGSSN","LeadingDealership","Region"],
-	data:[["40","40E6A30F-BA65-41D8-A140-E0BAC79AC190","EHFB10","CN890067","CN914020","6","1001","安徽之星汽车销售服务有限公司","Anhui Star Automobile Sales & Service Co., Ltd.","安徽之星 ","Anhui Star","1","10250","AH 250","AH250/SC11/BP6","1021","103","230011","汴河路国际汽车城4号展厅","International Autotown No.4 Showroom, Bianhe Road","86","551","439 7668","86","551","64397666","86","551","159 5693 3516","anhuistar@anhuistar-benz.com","","1","1027","2","EHFB10","EHFB10","南"],......]
+    "totalCount": 10000,
+    "page": 1,
+    "pageSize":100,
+    "key":["DealerID","DealerNo","DealerCode","IMSCode","SAPCode","DealerTypeID","DealerOwnerID","DealerNameCn","DealerNameEn","DealerShortNameCn","DealerShortNameEn","FormatID","FormatCodeID","_formatcode","Format","ProvinceID","CityID","ZipCode","OperatingAddressCn","OperatingAddressEn","FaxCountryNo","FaxAreaNo","FaxNo","PhoneCountryNo","PhoneAreaNo","PhoneNo","SupportPhoneCountryNo","SupportPhoneAreaNo","SupportPhoneNo","Email","HomePage","Status","DealerGroupID","BDC","LeadingGSSN","LeadingDealership","Region"],
+    "data":[["40","40E6A30F-BA65-41D8-A140-E0BAC79AC190","EHFB10","CN890067","CN914020","6","1001","安徽之星汽车销售服务有限公司","Anhui Star Automobile Sales & Service Co., Ltd.","安徽之星 ","Anhui Star","1","10250","AH 250","AH250/SC11/BP6","1021","103","230011","汴河路国际汽车城4号展厅","International Autotown No.4 Showroom, Bianhe Road","86","551","439 7668","86","551","64397666","86","551","159 5693 3516","anhuistar@anhuistar-benz.com","","1","1027","2","EHFB10","EHFB10","南"],......]
 }
 ``` 
 
