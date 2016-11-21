@@ -3,8 +3,8 @@
 
 ##Dealer
 ###获取全部数据接口
-        [https://dicserver/API/IDCIDs/dealer?action=getall&page=1](https://dicserver/API/IDCIDs/dealer)
-        请求方式：GET
+    [https://dicserver/API/IDCIDs/dealer?action=getall&page=1](https://dicserver/API/IDCIDs/dealer)<br>
+    请求方式：GET
 ####参数
 | 参数        |    是否必须 | 说明                  |
 | :--------  | ----------:| :------------------: |
