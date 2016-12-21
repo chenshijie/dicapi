@@ -22,19 +22,13 @@
 ####返回结果
 ```javascript
 {
-    "GEMSUID": "D8ABCDE", 
-    "FirstNameCn": "大全",
-    "LastNameCn": "高",
-    "Birthday": "19880812", 
+    "UserID": 144915,
+    "GEMSUID": "D8XIWYAN",
+    "FirstNameCn": "希望",
+    "LastNameCn": "闫",
+    "Birthday": "1988-08-12",
     "Gender": "M",
-    "Email": "gaodaquan@xxxx.com",
-    "Phone": "8601012345678", 
-    "Fax": "8601087654321",
-    "DepartmentID": 10,
-    "PositionID": 20,
-    "DealerID": 100, 
-    "DealerGroupID": 2,
-    "Status": 1,
+    "Status": 1
 }
 ```
 ####返回结果说明
