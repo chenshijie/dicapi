@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <location path="." allowOverride="true" inheritInChildApplications="false">
+    <system.webServer>
+     
+        <httpErrors existingResponse="PassThrough" />
+        <modules>
+            <add name="CASiteMinderWebagentModule" preCondition="integratedMode,bitness64" />
+            <add name="CASiteMinderWebagentModule-32" preCondition="integratedMode,bitness32" />
+        </modules>
+        <handlers>
+            <add name="SiteMinderWebAgent" path="*" verb="*" modules="IsapiModule" scriptProcessor="C:\Program Files\CA\webagent\win64\bin\ISAPI6WebAgent.dll" resourceType="File" requireAccess="None" preCondition="bitness64" />
+            <add name="handler-wa-32" path="*" verb="*" modules="IsapiModule" scriptProcessor="C:\Program Files\CA\webagent\win32\bin\ISAPI6WebAgent.dll" resourceType="Unspecified" requireAccess="None" preCondition="classicMode,bitness32" />
+            <add name="CASiteMinderWebAgentHandler-fcc-32" path="*.fcc" verb="*" modules="CASiteMinderWebagentModule-32" resourceType="Unspecified" preCondition="integratedMode,bitness32" />
+            <add name="CASiteMinderWebAgentHandler-ntc-32" path="*.ntc" verb="*" modules="CASiteMinderWebagentModule-32" resourceType="Unspecified" preCondition="integratedMode,bitness32" />
+            <add name="CASiteMinderWebAgentHandler-ccc-32" path="*.ccc" verb="*" modules="CASiteMinderWebagentModule-32" resourceType="Unspecified" preCondition="integratedMode,bitness32" />
+            <add name="CASiteMinderWebAgentHandler-scc-32" path="*.scc" verb="*" modules="CASiteMinderWebagentModule-32" resourceType="Unspecified" preCondition="integratedMode,bitness32" />
+            <add name="CASiteMinderWebAgentHandler-kcc-32" path="*.kcc" verb="*" modules="CASiteMinderWebagentModule-32" resourceType="Unspecified" preCondition="integratedMode,bitness32" />
+            <add name="handler-wa" path="*" verb="*" modules="IsapiModule" scriptProcessor="C:\Program Files\CA\webagent\win64\bin\ISAPI6WebAgent.dll" resourceType="Unspecified" requireAccess="None" preCondition="classicMode,bitness64" />
+            <add name="CASiteMinderWebAgentHandler-fcc" path="*.fcc" verb="*" modules="CASiteMinderWebagentModule" resourceType="Unspecified" preCondition="integratedMode,bitness64" />
+            <add name="CASiteMinderWebAgentHandler-ntc" path="*.ntc" verb="*" modules="CASiteMinderWebagentModule" resourceType="Unspecified" preCondition="integratedMode,bitness64" />
+            <add name="CASiteMinderWebAgentHandler-ccc" path="*.ccc" verb="*" modules="CASiteMinderWebagentModule" resourceType="Unspecified" preCondition="integratedMode,bitness64" />
+            <add name="CASiteMinderWebAgentHandler-scc" path="*.scc" verb="*" modules="CASiteMinderWebagentModule" resourceType="Unspecified" preCondition="integratedMode,bitness64" />
+            <add name="CASiteMinderWebAgentHandler-kcc" path="*.kcc" verb="*" modules="CASiteMinderWebagentModule" resourceType="Unspecified" preCondition="integratedMode,bitness64" />
+        </handlers>
+        <isapiFilters>
+            <filter name="SiteMinder Agent" path="C:\Program Files\CA\webagent\win64\bin\ISAPI6WebAgent.dll" enabled="true" preCondition="classicMode,bitness64" />
+            <filter name="SiteMinder Agent-32" path="C:\Program Files\CA\webagent\win32\bin\ISAPI6WebAgent.dll" enabled="true" preCondition="classicMode,bitness32" />
+            <filter name="IIS75Filter" path="C:\Program Files\CA\webagent\win64\bin\ISAPI6WebAgent.dll" preCondition="bitness64" />
+        </isapiFilters>
+        <rewrite>
+            <outboundRules>
+                <rule name="ReverseProxyOutboundRule1" preCondition="ResponseIsHtml1">
+                    <match filterByTags="A, Form, Img" pattern="^http(s)?://53.99.33.19/(.*)" />
+                    <action type="Rewrite" value="http{R:1}://53.99.33.19/{R:2}" />
+                </rule>
+                <preConditions>
+                    <preCondition name="ResponseIsHtml1">
+                        <add input="{RESPONSE_CONTENT_TYPE}" pattern="^text/html" />
+                    </preCondition>
+                </preConditions>
+            </outboundRules>
+            <rules>
+                <rule name="ReverseProxyInboundRule1" stopProcessing="true">
+                    <match url="(sso/userlogin.*)" />
+                    <action type="Rewrite" url="http://53.99.33.19:9080/{R:1}" />
+                </rule>
+            </rules>
+        </rewrite>
+    </system.webServer>
+</location>
+    <system.web>
+        <identity impersonate="false" />
+    </system.web>
+</configuration>
